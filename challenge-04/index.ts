@@ -1,21 +1,20 @@
 function decode (message: string): string {
-  let newM = ''
+  let newMessage = ''
   let index = 0
 
   while (index < message.length) {
     const char = message[index]
-    newM += char
+    newMessage += char
     if (char === '(') {
-      const mes = decode(message.substring(index + 1))
-      newM += mes
-      index = index + mes.length
+      const decodedMessage = decode(message.substring(index + 1))
+      newMessage += decodedMessage
+      index = index + decodedMessage.length
     } else if (char === ')') {
-      // arr.push(m[index])
-      return newM.split('').reverse().join('')
+      return newMessage.split('').reverse().join('')
     }
     index++
   }
-  return newM.replaceAll(/\(|\)/g, '')
+  return newMessage.replaceAll(/\(|\)/g, '')
 }
 
 const b = decode('sa(u(cla)atn)s')
