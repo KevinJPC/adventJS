@@ -1,26 +1,21 @@
 function decode (message: string): string {
-  type NestedArray<T> = T | Array<NestedArray<T>>
+  let newM = ''
+  let index = 0
 
-  function format (m: string): [Array<NestedArray<string>>, number] {
-    const arr: Array<NestedArray<string>> = []
-    let index = 0
-
-    while (index < m.length) {
-      if (m[index] === '(') {
-        const [newArr, newIndex] = format(m.substring(index + 1))
-        arr.push(newArr)
-        index = index + newIndex + 1
-      } else if (m[index] === ')') {
-        return [arr.flat().reverse(), index]
-      } else {
-        arr.push(m[index])
-      }
-      index++
+  while (index < message.length) {
+    const char = message[index]
+    newM += char
+    if (char === '(') {
+      const mes = decode(message.substring(index + 1))
+      newM += mes
+      index = index + mes.length
+    } else if (char === ')') {
+      // arr.push(m[index])
+      return newM.split('').reverse().join('')
     }
-    return [arr.flat(), index]
+    index++
   }
-  const messageToArray = format(message)[0].join('')
-  return messageToArray
+  return newM.replaceAll(/\(|\)/g, '')
 }
 
 const b = decode('sa(u(cla)atn)s')
