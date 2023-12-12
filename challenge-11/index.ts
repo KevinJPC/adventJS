@@ -22,7 +22,7 @@ function getIndexsForPalindrome (word: string): number[] | null {
 
   return null
 }
-// Test:
+
 console.log(getIndexsForPalindrome('aaababa'))
 
 // Expected:
@@ -30,6 +30,3 @@ console.log(getIndexsForPalindrome('aaababa'))
 //   1,
 //   3
 // ]
-
-// Actual:
-// null
