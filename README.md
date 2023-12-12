@@ -11,4 +11,5 @@
 - [Challenge 08](https://github.com/KevinJPC/adventjs/tree/main/challenge-08)
 - [Challenge 09](https://github.com/KevinJPC/adventjs/tree/main/challenge-09)
 - [Challenge 10](https://github.com/KevinJPC/adventjs/tree/main/challenge-10)
+- [Challenge 11](https://github.com/KevinJPC/adventjs/tree/main/challenge-11)
 
